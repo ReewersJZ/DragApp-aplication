@@ -29,8 +29,8 @@ class DaneFormularza:
                  start_minuta='brak', koniec_godzina='brak', koniec_minuta='brak', stawka='brak', p1='brak', p2='brak',
                  p3='brak', p4='brak', p5='brak', p6='brak', p7='brak', p8='brak', p9='brak', p10='brak', p11='brak',
                  p12='brak', p13='brak', p14='brak', p15='brak', p16='brak', p17='brak', p18='brak', p19='brak',
-                 p20='brak', p21='brak', p22='brak', p23='brak', p24='brak', p25='brak', p26='brak', p27='brak',
-                 p28='brak', z1='brak', z2='brak', z3='brak', z4='brak', z5='brak', z6='brak', z7='brak', z8='brak',
+                 p20='brak', p21='brak', p22='brak', p23='brak', p24='brak', p25='brak', p26='brak', z1='brak',
+                 z2='brak', z3='brak', z4='brak', z5='brak', z6='brak', z7='brak', z8='brak',
                  z9='brak', z10='brak', z11='brak', z12='brak', z13='brak', z14='brak', z15='brak', z16='brak',
                  z17='brak', z18='brak', z19='brak', z20='brak', z21='brak', z22='brak', z23='brak', z24='brak',
                  z25='brak', z26='brak', z27='brak', z28='brak', status='nierozliczone', stawka_vat='brsk'):
@@ -47,7 +47,7 @@ class DaneFormularza:
         self.p1, self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8 = p1, p2, p3, p4, p5, p6, p7, p8
         self.p9, self.p10, self.p11, self.p12, self.p13, self.p14, self.p15 = p9, p10, p11, p12, p13, p14, p15
         self.p16, self.p17, self.p18, self.p19, self.p20, self.p21, self.p22 = p16, p17, p18, p19, p20, p21, p22
-        self.p23, self.p24, self.p25, self.p26, self.p27, self.p28 = p23, p24, p25, p26, p27, p28
+        self.p23, self.p24, self.p25, self.p26 = p23, p24, p25, p26
         # MEASUREMENT:
         self.z1, self.z2, self.z3, self.z4, self.z5, self.z6, self.z7, self.z8 = z1, z2, z3, z4, z5, z6, z7, z8
         self.z9, self.z10, self.z11, self.z12, self.z13, self.z14, self.z15 = z9, z10, z11, z12, z13, z14, z15
@@ -129,7 +129,7 @@ def menu_pierwszy():
     global tekst_produkt_9, tekst_produkt_10, tekst_produkt_11, tekst_produkt_12, tekst_produkt_13, tekst_produkt_14
     global tekst_produkt_15, tekst_produkt_16, tekst_produkt_17, tekst_produkt_18, tekst_produkt_19, tekst_produkt_20
     global tekst_produkt_21, tekst_produkt_22, tekst_produkt_23, tekst_produkt_24, tekst_produkt_25, tekst_produkt_26
-    global tekst_produkt_27, tekst_produkt_28, root, wybrana_stawka, koncowy_wynik, pomiar_kolejny
+    global root, wybrana_stawka, koncowy_wynik, pomiar_kolejny
     global tabela_pomocnicza_pomiary, pomoc_pomiary1, pomoc_pomiary2, pomoc_pomiary3, pomoc_pomiary4, pomoc_pomiary5
     global pomoc_pomiary6, pomoc_pomiary7, pomoc_pomiary8, pomoc_pomiary9, pomoc_pomiary10, pomoc_pomiary11
     global pomoc_pomiary12, pomoc_pomiary13, pomoc_pomiary14, pomoc_pomiary15, pomoc_pomiary16, pomoc_pomiary17
@@ -299,13 +299,6 @@ def menu_pierwszy():
     tekst_produkt_25.place(relx=0.2, rely=0.875, relwidth=0.05, relheight=0.05)
     tekst_produkt_26 = tkinter.Entry(app_a, bg='white', font=('Gill sans MT', 10), justify='center')
     tekst_produkt_26.place(relx=0.35, rely=0.875, relwidth=0.35, relheight=0.05)
-    tekst_produkt_27 = tkinter.Entry(app_a, bg='white', font=('Gill sans MT', 14), justify='center')
-    tekst_produkt_27.forget()
-    # (relx=0.5, rely=0.875, relwidth=0.05, relheight=0.05) - dodatkowa pozycja w materialach
-    tekst_produkt_28 = tkinter.Entry(app_a, bg='white', font=('Gill sans MT', 14), justify='center')
-    tekst_produkt_28.forget()
-    # (relx=0.65, rely=0.875, relwidth=0.05, relheight=0.05) - dodatkowa pozycja w materialach (gdyby
-    # trzeba bylo przywrócić to należy dodać opis pozycji w def create_labels
 
     button2 = tkinter.Button(master=app_a, text="DODAJ POMIARY", bg=kol_tla2, fg='white',
                              font=(czcionka, wiel_czcionki, efekt_czcionki), command=pobierz_pomiary)
@@ -562,7 +555,7 @@ def akcja():
     global tekst_produkt_9, tekst_produkt_10, tekst_produkt_11, tekst_produkt_12, tekst_produkt_13, tekst_produkt_14
     global tekst_produkt_15, tekst_produkt_16, tekst_produkt_17, tekst_produkt_18, tekst_produkt_19, tekst_produkt_20
     global tekst_produkt_21, tekst_produkt_22, tekst_produkt_23, tekst_produkt_24, tekst_produkt_25, tekst_produkt_26
-    global tekst_produkt_27, tekst_produkt_28, root, wybrana_stawka, koncowy_wynik
+    global root, wybrana_stawka, koncowy_wynik
     global pomiar_kolejny, tabela_pomiary, wszystkie_pomiary, lista_z_pomiarami
     global pierwszy_pomiar_wejcie, pierwszy_pomiar_wejcie1
     global kolejny_wejcie, kolejny_wejscie1, kolejny_wejscie2, kolejny_wejscie3
@@ -607,8 +600,6 @@ def akcja():
     p24 = tekst_produkt_24.get()
     p25 = tekst_produkt_25.get()
     p26 = tekst_produkt_26.get()
-    p27 = tekst_produkt_27.get()
-    p28 = tekst_produkt_28.get()
     z1, z2, z3 = pomoc_pomiary1['text'], pomoc_pomiary2['text'], pomoc_pomiary3['text']
     z4, z5, z6 = pomoc_pomiary4['text'], pomoc_pomiary5['text'], pomoc_pomiary6['text']
     z7, z8, z9 = pomoc_pomiary7['text'], pomoc_pomiary8['text'], pomoc_pomiary9['text']
@@ -624,9 +615,9 @@ def akcja():
 
     nowy = DaneFormularza(data, miasto, ulica, numer, start_godzina, start_minuta, koniec_godzina, koniec_minuta,
                           stawka, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18,
-                          p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10,
-                          z11, z12, z13, z14, z15, z16, z17, z18, z19, z20, z21, z22, z23, z24, z25, z26, z27, z28,
-                          status, stawka_vat)
+                          p19, p20, p21, p22, p23, p24, p25, p26, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12,
+                          z13, z14, z15, z16, z17, z18, z19, z20, z21, z22, z23, z24, z25, z26, z27, z28, status,
+                          stawka_vat)
 
     dopisz_do_bazy('baza.csv', nowy)
     nowa_linia('baza.csv')
@@ -1389,16 +1380,16 @@ def zamknij_rysunek():
 
 # DEF DO PANELU MENU_PIERWSZY - ZAPISUJĄCE DO PLIKU I KONWERUJĄCE PLIKI:
 def dopisz_do_bazy(plik, nowy):
-    with open(plik, mode='a+', encoding='CP1250') as wejscie:
+    with open(plik, mode='a+', encoding='UTF-8') as wejscie:
         wejscie.write(f'{nowy.data};{nowy.miasto};{nowy.ulica};{nowy.numer};{nowy.start_godzina};{nowy.start_minuta};'
                       f'{nowy.koniec_godzina};{nowy.koniec_minuta};{nowy.stawka};{nowy.p1};{nowy.p2};'
                       f'{nowy.p3};{nowy.p4};{nowy.p5};{nowy.p6};{nowy.p7};{nowy.p8};{nowy.p9};{nowy.p10};{nowy.p11};'
                       f'{nowy.p12};{nowy.p13};{nowy.p14};{nowy.p15};{nowy.p16};{nowy.p17};{nowy.p18};{nowy.p19};'
-                      f'{nowy.p20};{nowy.p21};{nowy.p22};{nowy.p23};{nowy.p24};{nowy.p25};{nowy.p26};{nowy.p27};'
-                      f'{nowy.p28}; {nowy.z1};{nowy.z2};{nowy.z3};{nowy.z4};{nowy.z5};{nowy.z6};{nowy.z7};{nowy.z8};'
-                      f'{nowy.z9};{nowy.z10};{nowy.z11};{nowy.z12};{nowy.z13};{nowy.z14};{nowy.z15};{nowy.z16};'
-                      f'{nowy.z17};{nowy.z18};{nowy.z19};{nowy.z20};{nowy.z21};{nowy.z22};{nowy.z23};{nowy.z24};'
-                      f'{nowy.z25};{nowy.z26};{nowy.z27};{nowy.z28}; {nowy.status}; {nowy.stawka_vat}')
+                      f'{nowy.p20};{nowy.p21};{nowy.p22};{nowy.p23};{nowy.p24};{nowy.p25};{nowy.p26};{nowy.z1};'
+                      f'{nowy.z2};{nowy.z3};{nowy.z4};{nowy.z5};{nowy.z6};{nowy.z7};{nowy.z8};{nowy.z9};{nowy.z10};'
+                      f'{nowy.z11};{nowy.z12};{nowy.z13};{nowy.z14};{nowy.z15};{nowy.z16};{nowy.z17};{nowy.z18};'
+                      f'{nowy.z19};{nowy.z20};{nowy.z21};{nowy.z22};{nowy.z23};{nowy.z24};{nowy.z25};{nowy.z26};'
+                      f'{nowy.z27};{nowy.z28}; {nowy.status}; {nowy.stawka_vat}')
 
     return
 
@@ -1431,17 +1422,17 @@ def drukuj():
     ulica = poleTekstowe3.get()
     numer = poleTekstowe4.get()
     lista = []
-    with open('baza.csv', mode='r', encoding='CP1250') as wejscie:
+    with open('baza.csv', mode='r', encoding='UTF-8') as wejscie:
         for linia in wejscie:
             dane = linia.strip().split(';')
             szukany = DaneFormularza(dane[0], dane[1], dane[2], dane[3], dane[4], dane[5], dane[6], dane[7], dane[8],
                                      dane[9], dane[10], dane[11], dane[12], dane[13], dane[14], dane[15], dane[16],
                                      dane[17], dane[18], dane[19], dane[20], dane[21], dane[22], dane[23], dane[24],
                                      dane[25], dane[26], dane[27], dane[28], dane[29], dane[30], dane[31], dane[32],
-                                     dane[33], dane[34], dane[35], dane[36], dane[37], dane[38], dane[39], dane[40],
-                                     dane[41], dane[42], dane[43], dane[44], dane[45], dane[46], dane[47], dane[48],
-                                     dane[49], dane[50], dane[51], dane[52], dane[53], dane[54], dane[55], dane[56],
-                                     dane[57], dane[58], dane[59], dane[60], dane[61], dane[62], dane[63], dane[64],
+                                     dane[33], dane[34], dane[35], dane[36], dane[37], dane[38],
+                                     dane[39], dane[40], dane[41], dane[42], dane[43], dane[44], dane[45], dane[46],
+                                     dane[47], dane[48], dane[49], dane[50], dane[51], dane[52], dane[53], dane[54],
+                                     dane[55], dane[56], dane[57], dane[58], dane[59], dane[60], dane[61], dane[62],
                                      )
 
             if szukany.data == data and szukany.miasto == miasto and szukany.ulica == ulica and szukany.numer == numer:
@@ -1506,7 +1497,7 @@ def wpisywanie_tekstu_do_worda(lista):
                    (element.z19, element.z20), (element.z21, element.z22), (element.z23, element.z24),
                    (element.z25, element.z26), (element.z27, element.z28))
 
-        if pomiary[0][0] == ' ':
+        if pomiary[0][0] == '':
             document.add_paragraph('--brak--')
         else:
             lp2 = 1
@@ -1650,21 +1641,20 @@ def zatwierdz_przedzial_dat():
             tkinter.messagebox.showinfo(title=None, message='Podano błędny format daty')
 
     lista = []
-    with open('baza.csv', mode='r', encoding='CP1250') as wejscie:
+    with open('baza.csv', mode='r', encoding='UTF-8') as wejscie:
         for linia in wejscie:
             dane = linia.strip().split(';')
             pozycja_do_rozliczenia = DaneFormularza(dane[0], dane[1], dane[2], dane[3], dane[4], dane[5], dane[6],
                                                     dane[7], dane[8], dane[9], dane[10], dane[11], dane[12],
-                                                    dane[13],
-                                                    dane[14], dane[15], dane[16], dane[17], dane[18], dane[19],
-                                                    dane[20], dane[21], dane[22], dane[23], dane[24], dane[25],
-                                                    dane[26], dane[27], dane[28], dane[29], dane[30], dane[31],
-                                                    dane[32], dane[33], dane[34], dane[35], dane[36], dane[37],
-                                                    dane[38], dane[39], dane[40], dane[41], dane[42], dane[43],
-                                                    dane[44], dane[45], dane[46], dane[47], dane[48], dane[49],
-                                                    dane[50], dane[51], dane[52], dane[53], dane[54], dane[55],
-                                                    dane[56], dane[57], dane[58], dane[59], dane[60], dane[61],
-                                                    dane[62], dane[63], dane[64], dane[65], dane[66]
+                                                    dane[13], dane[14], dane[15], dane[16], dane[17], dane[18],
+                                                    dane[19], dane[20], dane[21], dane[22], dane[23], dane[24],
+                                                    dane[25], dane[26], dane[27], dane[28], dane[29], dane[30],
+                                                    dane[31], dane[32], dane[33], dane[34], dane[35], dane[36],
+                                                    dane[37], dane[38], dane[39], dane[40], dane[41], dane[42],
+                                                    dane[43], dane[44], dane[45], dane[46], dane[47], dane[48],
+                                                    dane[49], dane[50], dane[51], dane[52], dane[53], dane[54],
+                                                    dane[55], dane[56], dane[57], dane[58], dane[59],
+                                                    dane[60], dane[61], dane[62], dane[63], dane[64]
                                                     )
 
             for element in lista_dat_format:
